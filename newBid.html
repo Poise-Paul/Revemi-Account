@@ -21,14 +21,19 @@
         theme: {
           extend: {
             backgroundImage: {
-              bg: "url('./Assets/Products-bg.png')",
-              footer:
-                "url('https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')",
+              funds: "url('./Assets/Add Funds-01.png')",
             },
             colors: {
               secondary: "#2E6B3E",
               primary: "#4DB268",
-              background: "#F2F2F2",
+              mainBg: "#F2F2F2",
+              thirteenBg: "#595959",
+              lightGray: "#8C8C8C",
+              darkGray: "#595959",
+            },
+            fontFamily: {
+              mont: ["montserrat"],
+              san: ["Open Sans"],
             },
           },
         },
@@ -42,7 +47,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="bg-mainBg">
     <div class="h-full relative">
       <nav
         role="navigation"
@@ -77,7 +82,16 @@
           </svg>
         </div>
         <div
-          class="hidden md:block mr-4 p-5 space-x-4 z-10 text-gray-200"
+          class="
+            hidden
+            md:block
+            mr-4
+            p-5
+            space-x-4
+            z-10
+            text-gray-200
+            font-mont
+          "
           id="menu"
         >
           <a
@@ -118,7 +132,7 @@
         <h1 class="text-3xl font-semibold text-white">New Bid</h1>
       </header>
       <main>
-        <div class="px-40 py-10 bg-background">
+        <div class="px-40 py-10 bg-background font-mont text-gray-400">
           <div class="flex flex-row space-x-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +161,9 @@
             "
           >
             <div class="border-b-2 border-gray-200 py-6">
-              <h1 class="mb-3 font-semibold">Product Information</h1>
+              <h1 class="mb-3 font-semibold text-darkGray">
+                Product Information
+              </h1>
               <div class="grid grid-cols-3 gap-5">
                 <div class="flex flex-col space-y-4">
                   <div>
@@ -293,7 +309,7 @@
             </div>
             <!-- Second Row -->
             <div class="border-b-2 border-gray-200">
-              <h1 class="font-semibold mb-3">Quality</h1>
+              <h1 class="font-semibold mb-3 text-darkGray">Quality</h1>
               <div class="grid grid-cols-3 gap-5 py-5">
                 <div class="flex flex-col space-y-4">
                   <div>
@@ -365,7 +381,9 @@
             </div>
             <!-- Third Row -->
             <div class="border-b-2 border-gray-200">
-              <h1 class="font-semibold mb-3">Logistics Information</h1>
+              <h1 class="font-semibold mb-3 text-darkGray">
+                Logistics Information
+              </h1>
               <div class="grid grid-cols-3 gap-5">
                 <div class="flex flex-col space-y-4">
                   <div>
@@ -430,13 +448,13 @@
               </div>
             </div>
             <div class="border-b-2 py-3 border-gray-300">
-              <h1>Additional Comments</h1>
+              <h1 class="text-darkGray">Additional Comments</h1>
               <textarea
                 name=""
                 id=""
                 cols="30"
                 rows="5"
-                class="w-full rounded-md bg-gray-300"
+                class="w-full rounded-md bg-gray-300 focus:outline-none p-5"
               ></textarea>
             </div>
             <div>
@@ -448,7 +466,17 @@
                   to buy offers / place bids
                 </p>
               </div>
-              <button class="bg-primary px-10 py-2 my-5 text-white hover:bg-green-700 rounded-md">
+              <button
+                class="
+                  bg-primary
+                  px-10
+                  py-2
+                  my-5
+                  text-white
+                  hover:bg-green-700
+                  rounded-md
+                "
+              >
                 Submit Bid
               </button>
             </div>
