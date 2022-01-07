@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <script>
       tailwind.config = {
@@ -21,10 +25,14 @@
               thirteenBg: "#595959",
               lightGray: "#8C8C8C",
               darkGray: "#595959",
+              smNav: "#333333",
             },
             fontFamily: {
               mont: ["montserrat"],
               san: ["Open Sans"],
+            },
+            screens: {
+              sm: "300px",
             },
           },
         },
@@ -36,13 +44,18 @@
           content-visibility: auto;
         }
       }
+      @layer base {
+        .nav-item > .active {
+          @apply text-primary border-primary border-b-2;
+        }
+      }
     </style>
   </head>
   <body class="">
     <section class="body">
       <div class="bg-gray-200 h-screen font-mont">
         <div class="flex flex-row">
-          <div class="basis-1/4 p-3">
+          <div class="basis-1/4 md:block sm:hidden p-3">
             <div class="rounded-lg bg-white p-5">
               <div class="flex justify-center mb-5">
                 <img src="./Assets/Logo.png" alt="" />
@@ -52,17 +65,7 @@
                 <ul class="flex flex-col space-y-5 font-semibold text-gray-500">
                   <a href="index.html">
                     <li
-                      class="
-                        flex flex-row
-                        transition
-                        duration-300
-                        ease-in-out
-                        hover:text-green-500
-                        hover:border-r-green-500
-                        hover:border-r-4
-                        hover:bg-green-200
-                        p-3
-                      "
+                      class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -83,16 +86,7 @@
                   </a>
                   <a href="accountPage.html">
                     <li
-                      class="
-                        flex flex-row
-                        transition
-                        duration-300
-                        hover:text-green-500
-                        hover:border-r-green-500
-                        hover:bg-green-200
-                        hover:border-r-4
-                        p-3
-                      "
+                      class="flex flex-row transition duration-300 hover:text-green-500 hover:border-r-green-500 hover:bg-green-200 hover:border-r-4 p-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -113,17 +107,7 @@
                   </a>
                   <a href="orders.html">
                     <li
-                      class="
-                        flex flex-row
-                        transition
-                        duration-300
-                        ease-in-out
-                        hover:text-green-500
-                        hover:border-r-green-500
-                        hover:border-r-4
-                        hover:bg-green-200
-                        p-3
-                      "
+                      class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -144,17 +128,7 @@
                   </a>
                   <a href="saved.html">
                     <li
-                      class="
-                        flex flex-row
-                        transition
-                        duration-300
-                        ease-in-out
-                        hover:text-green-500
-                        hover:border-r-green-500
-                        hover:border-r-4
-                        hover:bg-green-200
-                        p-3
-                      "
+                      class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -175,16 +149,7 @@
                   </a>
                   <a href="profile.html">
                     <li
-                      class="
-                        flex flex-row
-                        transition
-                        duration-300
-                        ease-in-out
-                        text-green-500
-                        border-r-green-500 border-r-4
-                        bg-green-200
-                        p-3
-                      "
+                      class="flex flex-row transition duration-300 ease-in-out text-green-500 border-r-green-500 border-r-4 bg-green-200 p-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -207,22 +172,46 @@
               </div>
             </div>
           </div>
-          <div class="basis-3/4 p-3">
-            <div class="bg-white rounded-lg">
+          <div class="md:basis-3/4 sm:w-full p-3">
+            <div class="md:bg-white rounded-lg">
+              <!-- Top Header -->
               <div
-                class="
-                  bg-gradient-to-r
-                  from-green-500
-                  to-green-800
-                  grid grid-cols-2
-                  rounded-tr-lg rounded-tl-lg
-                  p-5
-                "
+                class="bg-secondary grid md:grid-cols-2 rounded-tr-lg rounded-tl-lg p-5"
               >
                 <div>
-                  <h1 class="uppercase text-white">Profile</h1>
+                  <h1 class="uppercase text-white flex items-center">
+                    Profile
+                  </h1>
                 </div>
-                <div class="justify-end flex">
+                <!-- View on Small -->
+                <div class="sm:flex justify-end md:hidden">
+                  <a href="index.html">
+                    <div
+                      class="flex flex-row space-x-1 text-white items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                        />
+                      </svg>
+                      <h1>Go to home</h1>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Exnd View on small -->
+
+                <!-- View on Large -->
+                <div class="md:flex sm:hidden justify-end items-center">
                   <h1 class="mr-2 text-white">
                     Wallet Balance: <strong>&#8358;12,345,533.00</strong>
                   </h1>
@@ -239,30 +228,18 @@
                     />
                   </svg>
                 </div>
+                <!-- End View on Large -->
               </div>
-              <div class="flex flex-row p-5">
+              <!-- End of Top Header -->
+              <!-- Main Product Container -->
+              <div class="md:flex flex-row sm:hidden p-5">
                 <div
-                  class="
-                    bg-gray-200
-                    flex flex-col
-                    justify-center
-                    p-5
-                    rounded-lg
-                  "
+                  class="bg-gray-200 flex flex-col justify-center p-5 rounded-lg"
                 >
                   <div class="flex flex-col">
                     <div class="flex justify-center">
                       <div
-                        class="
-                          flex
-                          justify-center
-                          bg-gray-500
-                          w-16
-                          h-16
-                          rounded-full
-                          items-center
-                          text-2xl text-white
-                        "
+                        class="flex justify-center bg-gray-500 w-16 h-16 rounded-full items-center text-2xl text-white"
                       >
                         <h1>JD</h1>
                       </div>
@@ -274,15 +251,7 @@
                     </div>
                   </div>
                   <ul
-                    class="
-                      flex flex-col
-                      mt-5
-                      text-center
-                      uppercase
-                      text-sm
-                      font-medium
-                      text-gray-500
-                    "
+                    class="flex flex-col mt-5 text-center uppercase text-sm font-medium text-gray-500"
                   >
                     <li class="bg-gray-300">
                       <small>Account Information</small>
@@ -290,12 +259,7 @@
                     <hr class="text-white" />
                     <a href="CompanyInfo.html">
                       <li
-                        class="
-                          hover:bg-gray-300
-                          transition
-                          duration-500
-                          ease-in-out
-                        "
+                        class="hover:bg-gray-300 transition duration-500 ease-in-out"
                       >
                         <small>Company Information</small>
                       </li>
@@ -303,13 +267,7 @@
                     <hr class="text-white" />
                     <a href="notifications.html">
                       <li
-                        class="
-                          p-3
-                          hover:bg-gray-300
-                          transition
-                          duration-500
-                          ease-in-out
-                        "
+                        class="p-3 hover:bg-gray-300 transition duration-500 ease-in-out"
                       >
                         <small>Notifications</small>
                       </li>
@@ -317,14 +275,7 @@
                     <div class="mt-48">
                       <hr class="text-white" />
                       <li
-                        class="
-                          p-3
-                          hover:bg-gray-300
-                          transition
-                          duration-500
-                          ease-in-out
-                          test-modal cursor-pointer
-                        "
+                        class="p-3 hover:bg-gray-300 transition duration-500 ease-in-out test-modal cursor-pointer"
                         data-modal-toggle="popup-modal"
                       >
                         <small>Delete Account</small>
@@ -355,12 +306,7 @@
                             <input
                               type="text"
                               placeholder="John"
-                              class="
-                                border border-gray-300
-                                p-2
-                                rounded-md
-                                focus:outline-none
-                              "
+                              class="border border-gray-300 p-2 rounded-md focus:outline-none"
                             />
                           </div>
                           <div class="mb-10">
@@ -368,12 +314,7 @@
                             <input
                               type="text"
                               placeholder="+234 704 028 7463"
-                              class="
-                                border border-gray-300
-                                p-2
-                                rounded-md
-                                focus:outline-none
-                              "
+                              class="border border-gray-300 p-2 rounded-md focus:outline-none"
                             />
                           </div>
                         </div>
@@ -383,12 +324,7 @@
                             <input
                               type="text"
                               placeholder="Doe"
-                              class="
-                                border border-gray-300
-                                p-2
-                                rounded-md
-                                focus:outline-none
-                              "
+                              class="border border-gray-300 p-2 rounded-md focus:outline-none"
                             />
                           </div>
                           <div class="mb-10">
@@ -396,12 +332,7 @@
                             <input
                               type="text"
                               placeholder="john@mail.com"
-                              class="
-                                border border-gray-300
-                                p-2
-                                rounded-md
-                                focus:outline-none
-                              "
+                              class="border border-gray-300 p-2 rounded-md focus:outline-none"
                             />
                           </div>
                         </div>
@@ -410,13 +341,7 @@
                     <div class="upl-cont p-2 basis-1/4">
                       <div class="border-dotted border-green-500 border p-3">
                         <div
-                          class="
-                            bg-gray-300
-                            p-10
-                            flex
-                            justify-center
-                            text-center
-                          "
+                          class="bg-gray-300 p-10 flex justify-center text-center"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -440,15 +365,7 @@
                           </svg>
                         </div>
                         <button
-                          class="
-                            bg-green-500
-                            px-6
-                            py-2
-                            mt-2
-                            font-semibold
-                            rounded-lg
-                            text-white
-                          "
+                          class="bg-green-500 px-6 py-2 mt-2 font-semibold rounded-lg text-white"
                         >
                           Add Photo
                         </button>
@@ -475,7 +392,7 @@
                         <li><input type="checkbox" /> Sesame Seeds</li>
                         <li><input type="checkbox" /> Beans</li>
                       </ul>
-                      <ul class="flex flex-row space-x-2 mt-2 mb-3">
+                      <ul class="flex flex-row space-x-3 mt-2 mb-3">
                         <li><input type="checkbox" /> Beans Flour</li>
                         <li><input type="checkbox" /> Plaintain Flour</li>
                         <li><input type="checkbox" /> Spices</li>
@@ -487,48 +404,19 @@
                         <input
                           type="text"
                           placeholder="Please Specify"
-                          class="
-                            border border-gray-300
-                            p-2
-                            w-80
-                            focus:outline-none
-                            rounded-lg
-                          "
+                          class="border border-gray-300 p-2 w-80 focus:outline-none rounded-lg"
                         />
                       </div>
                     </div>
                     <div class="basis-1/5 flex items-end">
                       <div>
                         <button
-                          class="
-                            border border-green-500
-                            text-green-500
-                            rounded-lg
-                            font-semibold
-                            px-1
-                            text-sm
-                            py-2
-                            w-full
-                            mb-3
-                            mt-10
-                            transition
-                            duration-500
-                            ease-in-out
-                            hover:bg-green-500 hover:text-white
-                          "
+                          class="border border-green-500 text-green-500 rounded-lg font-semibold px-1 text-sm py-2 w-full mb-3 mt-10 transition duration-500 ease-in-out hover:bg-green-500 hover:text-white"
                         >
                           Change Password
                         </button>
                         <button
-                          class="
-                            bg-green-500
-                            text-white
-                            px-12
-                            w-full
-                            py-2
-                            rounded-lg
-                            hover:bg-green-700
-                          "
+                          class="bg-green-500 text-white px-12 w-full py-2 rounded-lg hover:bg-green-700"
                         >
                           Save
                         </button>
@@ -537,26 +425,245 @@
                   </div>
                 </div>
               </div>
+              <!-- End of Product Container -->
+              <!-- Mobile Products Container -->
+              <div class="bg-white mt-5 rounded-lg p-5">
+                <div class="p-5">
+                  <div class="flex flex-col">
+                    <div class="flex justify-center relative">
+                      <div
+                        class="flex justify-center bg-gray-300 w-20 h-20 rounded-full items-center text-2xl text-white"
+                      >
+                        <h1>JD</h1>
+                      </div>
+                      <div
+                        class="camera bg-primary w-8 h-8 flex justify-center items-center rounded-full absolute bottom-0 right-40"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="text-sm font-medium w-full flex justify-center text-gray-500"
+                    >
+                      John Doe
+                    </div>
+                  </div>
+                </div>
+                <div class="border-gray-100 border-t-2 border-b-2">
+                  <ul
+                    class="nav nav-tabs grid grid-cols-3 w-full flex-row md:flex-row list-none border-b-0 pl-0"
+                    id="tabs-tab"
+                    role="tablist"
+                  >
+                    <li class="nav-item" role="presentation">
+                      <a
+                        href="#tabs-home"
+                        class="block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active"
+                        id="tabs-home-tab"
+                        data-bs-toggle="pill"
+                        data-bs-target="#tabs-home"
+                        role="tab"
+                        aria-controls="tabs-home"
+                        aria-selected="true"
+                      >
+                        Account</a
+                      >
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        href="#tabs-profile"
+                        class="block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
+                        id="tabs-profile-tab"
+                        data-bs-toggle="pill"
+                        data-bs-target="#tabs-profile"
+                        role="tab"
+                        aria-controls="tabs-profile"
+                        aria-selected="false"
+                        >Company</a
+                      >
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        href="#tabs-messages"
+                        class="navlink block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
+                        id="tabs-messages-tab"
+                        data-bs-toggle="pill"
+                        data-bs-target="#tabs-messages"
+                        role="tab"
+                        aria-controls="tabs-messages"
+                        aria-selected="false"
+                        >Notifications</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="tab-content" id="tabs-tabContent p-5">
+                  <div
+                    class="tab-pane fade show active"
+                    id="tabs-home"
+                    role="tabpanel"
+                    aria-labelledby="tabs-home-tab"
+                  >
+                    <div class="flex-col flex mt-3 text-sm text-gray-500">
+                      <h1>I am</h1>
+                      <div class="flex flex-row space-x-3 items-center">
+                        <div class="flex items-center space-x-1">
+                          <input type="radio" />
+                          <p>Seller</p>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                          <input type="radio" />
+                          <p>Buyer</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="text-gray-100 h-10 mt-3" />
+                    <div class="flex flex-col space-y-4 text-gray-500 text-sm">
+                      <div class="flex flex-col">
+                        <label for="firstName">First Name</label
+                        ><input
+                          type="text"
+                          placeholder="John"
+                          class="focus:outline-primary border p-3 border-gray-300 rounded-lg"
+                        />
+                      </div>
+                      <div class="flex flex-col">
+                        <label for="firstName">Last Name</label
+                        ><input
+                          type="text"
+                          placeholder="Doe"
+                          class="focus:outline-primary border p-3 border-gray-300 rounded-lg"
+                        />
+                      </div>
+                      <div class="flex flex-col">
+                        <label for="firstName">Mobile Number</label
+                        ><input
+                          type="text"
+                          placeholder="+234 704 297 9583"
+                          class="focus:outline-primary border p-3 border-gray-300 rounded-lg"
+                        />
+                      </div>
+                      <div class="flex flex-col">
+                        <label for="firstName">Contact Email</label
+                        ><input
+                          type="text"
+                          placeholder="@mail.com"
+                          class="focus:outline-primary border p-3 border-gray-300 rounded-lg"
+                        />
+                      </div>
+                    </div>
+                    <div class="text-gray-500">
+                      <h1 class="font-semibold my-3">Preffered Products</h1>
+                      <div class="flex flex-row flex-wrap gap-3">
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Cocoa</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Ginger</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Tamarind</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Crude Palm Oil</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Rice</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Palm Kernel</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Palm Oil</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Gum Arabic</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Beans</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Sesame Seeds</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Beans Flour</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Spices</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Plaintain Nut</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Cashew Nut</p>
+                        </div>
+                        <div class="flex flex-row items-center space-x-1">
+                          <input type="checkbox" />
+                          <p>Aquaculture</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="tabs-profile"
+                    role="tabpanel"
+                    aria-labelledby="tabs-profile-tab"
+                  >
+                    Tab 2 content
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="tabs-messages"
+                    role="tabpanel"
+                    aria-labelledby="tabs-profile-tab"
+                  >
+                    Tab 3 content
+                  </div>
+                </div>
+              </div>
+
+              <!-- End of Mobile Product Container -->
             </div>
           </div>
         </div>
       </div>
       <!-- Modal -->
       <div
-        class="
-          hidden
-          overflow-y-auto overflow-x-hidden
-          fixed
-          right-0
-          left-0
-          top-4
-          z-50
-          justify-center
-          items-center
-          md:inset-0
-          h-modal
-          sm:h-full
-        "
+        class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full"
         id="popup-modal"
       >
         <div class="relative px-4 max-w-lg w-full h-full md:h-auto">
@@ -566,17 +673,7 @@
             <div class="flex justify-end p-2">
               <button
                 type="button"
-                class="
-                  text-gray-400
-                  bg-transparent
-                  hover:bg-gray-200 hover:text-gray-300
-                  rounded-lg
-                  text-sm
-                  p-1.5
-                  ml-auto
-                  inline-flex
-                  items-center
-                "
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-300 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
                 data-modal-toggle="popup-modal"
               >
                 <svg
@@ -617,39 +714,14 @@
               <button
                 data-modal-toggle="popup-modal"
                 type="button"
-                class="
-                  text-gray-500
-                  bg-white
-                  hover:bg-gray-100
-                  focus:ring-4 focus:ring-gray-300
-                  rounded-lg
-                  border border-gray-400
-                  text-sm
-                  font-medium
-                  px-5
-                  py-2.5
-                "
+                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-400 text-sm font-medium px-5 py-2.5"
               >
                 cancel
               </button>
               <button
                 data-modal-toggle="popup-modal"
                 type="button"
-                class="
-                  text-white
-                  bg-red-600
-                  hover:bg-red-800
-                  focus:ring-4 focus:ring-red-300
-                  font-medium
-                  rounded-lg
-                  text-sm
-                  inline-flex
-                  items-center
-                  px-5
-                  py-2.5
-                  text-center
-                  mr-2
-                "
+                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               >
                 Yes, Delete it
               </button>
@@ -659,6 +731,7 @@
       </div>
       <!-- End Modal -->
     </section>
-    <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
   </body>
 </html>

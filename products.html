@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <title>Eki Market Place</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundImage: {
+              bg: "url('./Assets/Products-bg.png')",
+              footer:
+                "url('https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')",
+              products:
+                "url('https://images.unsplash.com/photo-1573246123716-6b1782bfc499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80')",
+              cocoa:
+                "url('https://images.unsplash.com/photo-1582082568487-628de573f601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
+              nuts: "url('https://images.unsplash.com/photo-1600189020840-e9918c25269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')",
+              maize:
+                "url('https://images.unsplash.com/photo-1623066798929-946425dbe1b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
+              spices:
+                "url('https://images.unsplash.com/photo-1610216339841-a0456a6c86a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80')",
+              seeds:
+                "url('https://www.thesprucecrafts.com/thmb/kLKjS-OEOoZKAInfdMj4FEIo8TY=/3888x2592/filters:no_upscale():max_bytes(150000):strip_icc()/oil-palm-seeds-90881120-57bb528f3df78c8763fb5b99.jpg')",
+              tuber:
+                "url('https://guardian.ng/wp-content/uploads/2017/02/yam.jpg')",
+            },
+            colors: {
+              clifford: "#da373d",
+              secondary: "#2E6B3E",
+              primary: "#4DB268",
+              mainBg: "#F2F2F2",
+              lightGray: "#8C8C8C",
+              darkGray: "#595959",
+              smNav: "#333333",
+            },
+            fontFamily: {
+              mont: ["montserrat"],
+              san: ["Open Sans"],
+            },
+            screens: {
+              sm: "300px",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+      @layer base {
+        .product-container {
+          @apply relative flex items-center justify-center m-3 overflow-hidden shadow-xl w-60 h-60 rounded-2xl bg-white transition-all duration-500 ease-in-out;
+        }
+
+        .product-container:hover .product-container-img {
+          @apply scale-150 absolute w-full mx-0 transition duration-500 ease-in-out h-full top-0 left-0 bg-gray-500 bg-blend-multiply;
+        }
+
+        .product-container:hover .product-container-text {
+          @apply absolute transition duration-500 ease-in-out text-white;
+        }
+        ::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="h-full relative w-full font-mont">
+      <!-- Navigation -->
+      <nav
+        role="navigation"
+        class="flex justify-between items-center p-3 lg:px-40 lg:h-28 sm:h-16 sm:py-5 text-white relative"
+      >
+        <a href="index.html" class="ml-6"
+          ><img
+            src="./Assets/Eki-Logo.svg"
+            class="lg:w-full sm:w-3/4 w-20"
+            alt=""
+        /></a>
+        <div class="px-4 cursor-pointer md:hidden" id="bars">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-green-700"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </div>
+        <div
+          class="hidden md:block mr-4 p-5 space-x-4 z-10 text-gray-300 font-semibold"
+          id="menu"
+        >
+          <a
+            href="index.html"
+            class="hover:text-white transition duration-500 ease-in-out"
+            >Home</a
+          >
+          <a
+            href="products.html"
+            class="hover:text-green-700 transition duration-500 ease-in-out text-primary"
+            >Products</a
+          >
+          <a
+            href="notifications.html"
+            class="hover:text-green-700 transition duration-500 ease-in-out"
+            >Notifications</a
+          >
+          <a
+            href="accountPage.html"
+            class="hover:text-green-700 transition duration-500 ease-in-out"
+            >My Account</a
+          >
+          <a
+            href="#"
+            class="hover:text-green-700 transition duration-500 ease-in-out"
+            >Logout</a
+          >
+        </div>
+      </nav>
+
+      <!-- Mobile Nav Bar -->
+      <div
+        class="bg-smNav opacity-95 top-0 left-0 h-screen overflow-hidden fixed z-50 w-full p-5 text-white hidden transition duration-500 ease-in-out"
+        id="mobileNav"
+      >
+        <div class="grid grid-cols-2">
+          <div class="">
+            <img src="./Assets/Eki-white.svg" class="w-16" alt="" />
+          </div>
+          <div class="flex justify-end close-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 cursor-pointer"
+              id="closeIcon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="flex justify-center font-mont font-bold text-center text-2xl pt-10"
+        >
+          <ul class="flex flex-col space-y-7">
+            <a href="index.html">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                Home
+              </li></a
+            >
+            <a href="products.html">
+              <li
+                class="text-primary hover:text-primary transition duration-500 ease-in-out"
+              >
+                Products
+              </li></a
+            >
+            <a href="signIn.html">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                Notifications
+              </li>
+            </a>
+            <a href="signUp.html">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                My Account
+              </li></a
+            >
+            <a href="signUp.html">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                Logout
+              </li></a
+            >
+          </ul>
+        </div>
+      </div>
+      <!-- End of Navigation -->
+
+      <!-- Header -->
+      <section class="header bg-products bg-cover">
+        <div
+          class="header-content text-center pb-10 bg-secondary bg-opacity-80 p-10"
+        >
+          <h1 class="text-3xl text-white pt-3 uppercase font-sans">
+            <strong>Choose a product to Start order Placement</strong>
+          </h1>
+          <div
+            class="circles flex flex-row-4 justify-center flex-wrap md:w-full md:px-80 mb-10 space-x-5 mt-5 font-mont font-medium capitalize"
+          >
+            <div
+              class="rounded-full product-container relative h-28 w-28 text-center flex flex-col justify-center mt-5"
+            >
+              <div
+                class="rounded-full product-container-img bg-cocoa h-14 w-14 mx-10"
+              ></div>
+              <div class="product-container-text text-green-500 pt-2">
+                <h1>Cocoa</h1>
+              </div>
+            </div>
+            <div
+              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
+            >
+              <div
+                class="rounded-full bg-nuts h-14 w-14 mx-10 product-container-img"
+              ></div>
+              <div class="text-green-500 product-container-text pt-2">
+                <h1>Nuts</h1>
+              </div>
+            </div>
+            <div
+              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
+            >
+              <div
+                class="rounded-full bg-maize h-14 w-14 mx-10 product-container-img"
+              ></div>
+              <div class="product-container-text text-green-500 pt-2">
+                <h1>Maize</h1>
+              </div>
+            </div>
+            <div
+              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
+            >
+              <div
+                class="rounded-full bg-spices h-14 w-14 mx-10 product-container-img"
+              ></div>
+              <div class="text-green-500 product-container-text pt-2">
+                <h1>Spices</h1>
+              </div>
+            </div>
+            <a href="productsClicked.html">
+              <div
+                class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
+              >
+                <div
+                  class="rounded-full bg-seeds h-14 w-14 mx-10 product-container-img"
+                ></div>
+                <div class="text-green-500 product-container-text pt-2">
+                  <h1>Oil Seeds</h1>
+                </div>
+              </div>
+            </a>
+            <div
+              class="rounded-full bg-white h-28 w-28 text-center flex flex-col justify-center mt-5 product-container"
+            >
+              <div
+                class="rounded-full bg-tuber h-16 w-16 mx-10 product-container-img"
+              ></div>
+              <div class="product-container-text text-green-500 pt-2">
+                <h1>Tuber</h1>
+              </div>
+            </div>
+          </div>
+          <hr class="text-white bg-white md:mx-40 rounded-full" />
+          <h1 class="text-white md:text-2xl mt-5 font-mont capitalize">
+            Can't find Your interested product?
+          </h1>
+          <button
+            class="bg-white text-primary hover:bg-primary hover:text-white shadow shadow-green-500 transition duration-500 ease-in-out px-5 py-3 rounded-lg mt-5 mb-5"
+          >
+            Contact Support
+          </button>
+        </div>
+      </section>
+      <!-- End Header -->
+
+      <!-- Footer Here -->
+      <section class="footer-section text-sm">
+        <div
+          class="footer-main-ctn bg-footer bg-cover bg-gray-900 bg-blend-multiply md:px-20 sm:px-10 py-20 text-white"
+        >
+          <div
+            class="footer-ctn md:mx-60 grid md:grid-cols-3 sm:grid-cols-2 sm:gap-5 sm:text-left sm:space-y-4"
+          >
+            <div class="grid-item md:inline sm:hidden">
+              <img src="/Assets/Eki Logo-white.svg" alt="" />
+            </div>
+            <div class="grid-item">
+              <ul class="flex flex-col space-y-3">
+                <li class="pb-3">
+                  <h4 class="font-bold">Quick Links</h4>
+                </li>
+                <li>eki (Marketplace)</li>
+                <li>Products & Servivces</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+            <div class="grid-item">
+              <h1 class="text-white font-bold">For Inquiries</h1>
+              <ul>
+                <li class="flex mt-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="md:h-8 md:w-10 sm:w-7 md:pr-4 sm:pr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  +234 801 234 5678
+                </li>
+                <li class="flex mt-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="md:h-8 md:w-10 sm:w-7 md:pr-4 sm:pr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  contact@revemi.com
+                </li>
+                <li class="flex mt-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="md:h-8 md:w-10 sm:w-12 md:pr-4 sm:pr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  Revemi Company P.O Box 1234 Lagos, Nigeria
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex justify-center pt-20"><strong>PARTNERS</strong></div>
+
+          <div class="buttom-ctn flex flex-col items-center space-y-4">
+            <div class="">
+              <img src="/Assets/USAID.svg" alt="" />
+            </div>
+            <div class="mopbile-social md:hidden sm:visible">
+              <div class="socials">
+                <ul class="flex flex-row float-right space-x-5">
+                  <li>
+                    <i class="bx bxl-facebook-circle text-2xl"></i>
+                  </li>
+                  <li>
+                    <i class="bx bxl-instagram text-2xl"></i>
+                  </li>
+                  <li>
+                    <i class="bx bxl-whatsapp text-2xl"></i>
+                  </li>
+                  <li>
+                    <i class="bx bxl-twitter text-2xl"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="mt-10" />
+
+          <!-- Mobile Bottom -->
+          <div class="sm:flex flex-col space-y-5 md:hidden">
+            <img src="./Assets/Eki Logo-white.svg" alt="" class="w-28 mt-5" />
+            <div class="">
+              <ul class="grid grid-cols-3">
+                <li><small>&copy;2021 Revemi NG</small> .</li>
+                <li><small>Privacy Policy</small></li>
+                <li><small>Terms Of Use</small></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Mobile Bottom -->
+
+          <div
+            class="social-bottom md:grid md:grid-cols-2 space-x-5 mt-5 sm:hidden"
+          >
+            <div class="copyright">
+              <ul class="flex flex-row space-x-5">
+                <li>&copy; 2021 Revemi NG.</li>
+                <li>Privacy Policy</li>
+                <li>Terms of Use</li>
+              </ul>
+            </div>
+            <div class="socials">
+              <ul class="flex flex-row float-right space-x-5">
+                <li>
+                  <i class="bx bxl-facebook-circle text-2xl"></i>
+                </li>
+                <li>
+                  <i class="bx bxl-instagram text-2xl"></i>
+                </li>
+                <li>
+                  <i class="bx bxl-whatsapp text-2xl"></i>
+                </li>
+                <li>
+                  <i class="bx bxl-twitter text-2xl"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Footer Ends Here -->
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

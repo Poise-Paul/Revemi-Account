@@ -21,19 +21,26 @@
         theme: {
           extend: {
             backgroundImage: {
-              funds: "url('./Assets/Add Funds-01.png')",
+              bg: "url('./Assets/pop-pro.png')",
+              products: "url('./Assets/Pro-MainBg.png')",
+              footer:
+                "url('https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')",
             },
             colors: {
+              clifford: "#da373d",
               secondary: "#2E6B3E",
               primary: "#4DB268",
               mainBg: "#F2F2F2",
-              thirteenBg: "#595959",
               lightGray: "#8C8C8C",
               darkGray: "#595959",
+              smNav: "#333333",
             },
             fontFamily: {
               mont: ["montserrat"],
               san: ["Open Sans"],
+            },
+            screens: {
+              sm: "300px",
             },
           },
         },
@@ -51,19 +58,13 @@
     <div class="h-full relative">
       <nav
         role="navigation"
-        class="
-          flex
-          justify-between
-          items-center
-          lg:h-28
-          sm:h-16
-          text-white
-          relative
-          px-36
-        "
+        class="flex justify-between items-center p-3 lg:px-40 lg:h-28 sm:h-16 sm:py-5 text-white relative"
       >
         <a href="index.html" class="ml-6"
-          ><img src="./Assets/Logo.png" class="lg:w-full sm:w-1/2" alt=""
+          ><img
+            src="./Assets/Eki-Logo.svg"
+            class="lg:w-full sm:w-3/4 w-20"
+            alt=""
         /></a>
         <div class="px-4 cursor-pointer md:hidden" id="bars">
           <svg
@@ -82,27 +83,12 @@
           </svg>
         </div>
         <div
-          class="
-            hidden
-            md:block
-            mr-4
-            p-5
-            space-x-4
-            z-10
-            text-gray-200
-            font-mont
-          "
+          class="hidden md:block mr-4 p-5 space-x-4 z-10 font-semibold text-gray-300"
           id="menu"
         >
           <a
-            href="about.html"
-            class="
-              hover:text-white
-              transition
-              duration-500
-              ease-in-out
-              text-green-700
-            "
+            href="index.html"
+            class="hover:text-white transition duration-500 ease-in-out text-primary"
             >Home</a
           >
           <a
@@ -111,29 +97,101 @@
             >Products</a
           >
           <a
-            href="signIn.html"
+            href="notifications.html"
             class="hover:text-green-700 transition duration-500 ease-in-out"
             >Notifications</a
           >
           <a
-            href="signUp.html"
+            href="accountPage.html"
             class="hover:text-green-700 transition duration-500 ease-in-out"
             >My Account</a
           >
           <a
-            href="signUp.html"
+            href="#"
             class="hover:text-green-700 transition duration-500 ease-in-out"
             >Logout</a
           >
         </div>
       </nav>
+
+      <!-- Mobile Nav Bar -->
+      <div
+        class="bg-smNav opacity-95 top-0 left-0 h-screen overflow-hidden fixed z-50 w-full p-5 text-white hidden transition duration-500 ease-in-out"
+        id="mobileNav"
+      >
+        <div class="grid grid-cols-2">
+          <div class="">
+            <img src="./Assets/Eki-white.svg" class="w-16" alt="" />
+          </div>
+          <div class="flex justify-end close-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 cursor-pointer"
+              id="closeIcon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="flex justify-center font-mont font-bold text-center text-2xl pt-10"
+        >
+          <ul class="flex flex-col space-y-7">
+            <a href="index.html">
+              <li
+                class="text-primary hover:text-primary transition duration-500 ease-in-out"
+              >
+                Home
+              </li></a
+            >
+            <a href="products.html">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                Products
+              </li></a
+            >
+            <a href="notifications.html">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                Notifications
+              </li>
+            </a>
+            <a href="accountPage.html">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                My Account
+              </li></a
+            >
+            <a href="#">
+              <li
+                class="hover:text-primary transition duration-500 ease-in-out"
+              >
+                Logout
+              </li></a
+            >
+          </ul>
+        </div>
+      </div>
       <!-- Header -->
-      <header class="bg-gradient-to-r p-5 px-40 from-secondary to-green-900">
+      <header class="bg-gradient-to-r p-5 md:px-40 from-secondary to-green-900">
         <h1 class="text-3xl font-semibold text-white">New Bid</h1>
       </header>
       <main>
-        <div class="px-40 py-10 bg-background font-mont text-gray-400">
-          <div class="flex flex-row space-x-3">
+        <div
+          class="md:px-40 sm:px-10 py-10 bg-background font-mont text-gray-400"
+        >
+          <div class="flex flex-row space-x-3 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -151,27 +209,20 @@
             <h1>Back to Products</h1>
           </div>
           <div
-            class="
-              shadow-sm
-              bg-white
-              shadow-gray-500
-              p-5
-              flex flex-col
-              space-y-5
-            "
+            class="shadow-sm bg-white shadow-gray-500 p-5 flex flex-col space-y-5"
           >
             <div class="border-b-2 border-gray-200 py-6">
               <h1 class="mb-3 font-semibold text-darkGray">
                 Product Information
               </h1>
-              <div class="grid grid-cols-3 gap-5">
+              <div class="grid md:grid-cols-3 gap-5 text-sm">
                 <div class="flex flex-col space-y-4">
                   <div>
                     <h1>Product</h1>
                     <select
                       name="product"
                       id=""
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Oil Seed</option>
                       <option value="2">Oil Seed</option>
@@ -183,7 +234,7 @@
                     <select
                       name="product"
                       id=""
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Kilograms (Kg)</option>
                       <option value="2">Kilograms (Kg)</option>
@@ -195,7 +246,7 @@
                     <select
                       name="product"
                       id=""
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Select One</option>
                       <option value="2">Select One</option>
@@ -209,7 +260,7 @@
                     <select
                       name="product"
                       id="productType"
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Oil Seed</option>
                       <option value="2">Oil Seed</option>
@@ -221,15 +272,7 @@
                     <label for="price">Price Per Weight Unit</label>
                     <div class="mt-1 relative rounded-md">
                       <div
-                        class="
-                          absolute
-                          inset-y-0
-                          left-0
-                          pl-3
-                          flex
-                          items-center
-                          pointer-events-none
-                        "
+                        class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                       >
                         <span class="text-gray-500 sm:text-sm p-3"
                           >&#8358;</span
@@ -239,17 +282,7 @@
                         type="text"
                         name="price"
                         id="price"
-                        class="
-                          focus:ring-indigo-500 focus:border-indigo-500
-                          block
-                          w-full
-                          px-16
-                          p-2
-                          sm:text-sm
-                          border-gray-300
-                          rounded-md
-                          border
-                        "
+                        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full px-16 p-2 sm:text-sm border-gray-300 rounded-md border focus:outline-primary"
                       />
                     </div>
                     <!--  -->
@@ -259,7 +292,7 @@
                     <select
                       name="product"
                       id=""
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Select One</option>
                       <option value="2">Select One</option>
@@ -273,7 +306,7 @@
                     <select
                       name="product"
                       id=""
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Oil Seed</option>
                       <option value="2">Oil Seed</option>
@@ -281,11 +314,11 @@
                     </select>
                   </div>
                   <div>
-                    <h1>WAdvanced Payment(%)</h1>
+                    <h1>Advanced Payment(%)</h1>
                     <select
                       name="product"
                       id=""
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Kilograms (Kg)</option>
                       <option value="2">Kilograms (Kg)</option>
@@ -297,7 +330,7 @@
                     <select
                       name="product"
                       id=""
-                      class="w-full border-gray-200 border rounded-md p-2"
+                      class="w-full border-gray-200 border rounded-md p-2 focus:outline-primary"
                     >
                       <option value="1">Select One</option>
                       <option value="2">Select One</option>
@@ -310,14 +343,14 @@
             <!-- Second Row -->
             <div class="border-b-2 border-gray-200">
               <h1 class="font-semibold mb-3 text-darkGray">Quality</h1>
-              <div class="grid grid-cols-3 gap-5 py-5">
+              <div class="grid md:grid-cols-3 gap-5 py-5">
                 <div class="flex flex-col space-y-4">
                   <div>
                     <h1>Maximum Moisture Content (%)</h1>
                     <select
                       name="product"
                       id=""
-                      class="border-gray-300 rounded-md border w-full p-1"
+                      class="border-gray-300 rounded-md border w-full p-1 focus:outline-primary"
                     >
                       <option value="1">0</option>
                       <option value="2">0</option>
@@ -329,7 +362,7 @@
                     <input
                       type="text"
                       placeholder="0"
-                      class="border rounded-md w-full p-1"
+                      class="border rounded-md w-full p-1 focus:outline-primary"
                     />
                   </div>
                 </div>
@@ -339,7 +372,7 @@
                     <select
                       name="product"
                       id=""
-                      class="border rounded-md w-full p-1"
+                      class="border rounded-md w-full p-1 focus:outline-primary"
                     >
                       <option value="1">0</option>
                       <option value="2">0</option>
@@ -351,7 +384,7 @@
                     <input
                       type="text"
                       placeholder="0"
-                      class="border rounded-md w-full p-1"
+                      class="border rounded-md w-full p-1 focus:outline-primary"
                     />
                   </div>
                 </div>
@@ -361,7 +394,7 @@
                     <select
                       name="product"
                       id=""
-                      class="border rounded-md w-full p-1"
+                      class="border rounded-md w-full p-1 focus:outline-primary"
                     >
                       <option value="1">0</option>
                       <option value="2">0</option>
@@ -373,7 +406,7 @@
                     <input
                       type="text"
                       placeholder="0"
-                      class="border rounded-md w-full p-1"
+                      class="border rounded-md w-full p-1 focus:outline-primary"
                     />
                   </div>
                 </div>
@@ -384,14 +417,14 @@
               <h1 class="font-semibold mb-3 text-darkGray">
                 Logistics Information
               </h1>
-              <div class="grid grid-cols-3 gap-5">
+              <div class="grid md:grid-cols-3 gap-5">
                 <div class="flex flex-col space-y-4">
                   <div>
                     <h1>Logistics Incoterms</h1>
                     <select
                       name="product"
                       id=""
-                      class="border-gray-300 w-full border rounded-md p-1"
+                      class="border-gray-300 w-full border rounded-md p-1 focus:outline-primary"
                     >
                       <option value="1">Select One</option>
                       <option value="2">Select One</option>
@@ -403,7 +436,7 @@
                     <input
                       type="text"
                       placeholder="dd/mm/yyyy"
-                      class="border border-gray-300 w-full rounded-md p-1"
+                      class="border border-gray-300 w-full rounded-md p-1 focus:outline-primary"
                     />
                   </div>
                 </div>
@@ -427,7 +460,7 @@
                       type="text"
                       id="deliveryDate"
                       placeholder="dd/mm/yyyy"
-                      class="border border-gray-300 w-full p-1 rounded-md"
+                      class="border border-gray-300 w-full p-1 rounded-md focus:outline-primary"
                     />
                   </div>
                 </div>
@@ -438,7 +471,7 @@
                       id="expiryDate"
                       type="text"
                       placeholder="dd/mm/yyyy"
-                      class="border border-gray-300 rounded-md p-1"
+                      class="border border-gray-300 rounded-md p-1 focus:outline-primary"
                     />
                   </div>
                 </div>
@@ -454,28 +487,21 @@
                 id=""
                 cols="30"
                 rows="5"
-                class="w-full rounded-md bg-gray-300 focus:outline-none p-5"
+                class="w-full rounded-md bg-gray-300 focus:outline-primary p-5"
               ></textarea>
             </div>
             <div>
               <div class="flex flex-row items-center space-x-3 py-3">
                 <input type="checkbox" name="" id="" />
-                <p>
+                <small>
                   I agree with
+
                   <span class="text-green-500">eki Terms and Conditions</span>
                   to buy offers / place bids
-                </p>
+                </small>
               </div>
               <button
-                class="
-                  bg-primary
-                  px-10
-                  py-2
-                  my-5
-                  text-white
-                  hover:bg-green-700
-                  rounded-md
-                "
+                class="bg-primary px-10 py-2 my-5 text-white hover:bg-green-700 rounded-md"
               >
                 Submit Bid
               </button>
@@ -486,20 +512,10 @@
       <!-- End Header -->
       <footer class="footer-section">
         <div
-          class="
-            footer-main-ctn
-            bg-footer bg-cover bg-gray-900 bg-blend-multiply
-            px-20
-            py-20
-            text-white
-          "
+          class="footer-main-ctn bg-footer bg-cover bg-gray-900 bg-blend-multiply px-20 py-20 text-white"
         >
           <div
-            class="
-              footer-ctn
-              lg:grid lg:grid-cols-3 lg:gap-4
-              sm:block sm:text-left sm:space-y-4
-            "
+            class="footer-ctn lg:grid lg:grid-cols-3 lg:gap-4 sm:block sm:text-left sm:space-y-4"
           >
             <div class="grid-item">
               <img src="/Assets/Eki Logo-white.svg" alt="" />
