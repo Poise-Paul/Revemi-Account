@@ -21,10 +21,14 @@
               thirteenBg: "#595959",
               lightGray: "#8C8C8C",
               darkGray: "#595959",
+              smNav: "#333333",
             },
             fontFamily: {
               mont: ["montserrat"],
               san: ["Open Sans"],
+            },
+            screens: {
+              sm: "300px",
             },
           },
         },
@@ -41,15 +45,180 @@
   <body class="">
     <section class="body">
       <div class="bg-gray-200 h-screen">
-        <div class="flex flex-row">
-          <div class="basis-1/4 p-3">
-            <div class="rounded-lg bg-white p-5">
-              <div class="flex justify-center mb-5">
-                <img src="./Assets/Logo.png" alt="" />
+        <!-- Place Nav Here -->
+        <nav
+          role="navigation"
+          class="sm:flex justify-between items-center p-3 lg:px-40 lg:h-28 sm:h-16 sm:py-5 text-white relative bg-white md:hidden"
+        >
+          <a href="index.html" class="ml-6"
+            ><img
+              src="./Assets/Eki-Logo.svg"
+              class="lg:w-full sm:w-3/4 w-20"
+              alt=""
+          /></a>
+          <div class="px-4 cursor-pointer md:hidden" id="bars">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-green-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </div>
+          <div
+            class="hidden md:block mr-4 p-5 space-x-4 z-10 font-semibold text-gray-300"
+            id="menu"
+          >
+            <a
+              href="index.html"
+              class="hover:text-white transition duration-500 ease-in-out text-primary"
+              >Home</a
+            >
+            <a
+              href="products.html"
+              class="hover:text-green-700 transition duration-500 ease-in-out"
+              >Products</a
+            >
+            <a
+              href="notifications.html"
+              class="hover:text-green-700 transition duration-500 ease-in-out"
+              >Notifications</a
+            >
+            <a
+              href="accountPage.html"
+              class="hover:text-green-700 transition duration-500 ease-in-out"
+              >My Account</a
+            >
+            <a
+              href="#"
+              class="hover:text-green-700 transition duration-500 ease-in-out"
+              >Logout</a
+            >
+          </div>
+        </nav>
+
+        <!-- Mobile Nav Bar -->
+        <div
+          class="bg-smNav bg-opacity-90 top-0 left-0 h-screen overflow-hidden fixed hidden z-50 w-full p-5 text-white transition duration-500 ease-in-out"
+          id="mobileNav"
+        >
+          <div class="bg-white fixed top-20 right-0 w-3/4 h-screen">
+            <div class="grid grid-cols-2">
+              <div class="">
+                <img src="./Assets/Eki-white.svg" class="w-16" alt="" />
               </div>
-              <hr class="text-gray-500 mb-5" />
+            </div>
+
+            <div class="font-mont py-5 font-semibold">
+              <ul class="flex flex-col space-y-5 text-gray-500">
+                <a href="index.html">
+                  <li
+                    class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                      />
+                    </svg>
+                    Home
+                  </li>
+                </a>
+                <a href="accountPage.html">
+                  <li
+                    class="flex flex-row transition duration-300 text-green-500 border-r-green-500 border-r-4 bg-green-200 p-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                      />
+                    </svg>
+                    Dashboard
+                  </li>
+                </a>
+                <a href="orders.html">
+                  <li
+                    class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    Orders
+                  </li>
+                </a>
+                <a href="profile.html">
+                  <li
+                    class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                    Profile
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End of Nav -->
+        <div class="flex flex-row">
+          <div class="basis-1/4 p-3 md:grid sm:hidden font-semibold">
+            <div class="rounded-lg md:flex md:flex-col bg-white sm:hidden p-5">
+              <div class="flex flex-col">
+                <div class="flex justify-center pb-3">
+                  <img src="./Assets/Eki-Logo-green.svg" alt="" />
+                </div>
+                <hr class="text-gray-500 mb-5" />
+              </div>
+
               <div class="font-mont">
-                <ul class="flex flex-col space-y-5 text-gray-500 font-semibold">
+                <ul class="flex flex-col space-y-5 text-gray-500">
                   <a href="index.html">
                     <li
                       class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
@@ -92,7 +261,7 @@
                       Dashboard
                     </li>
                   </a>
-                  <a href="orders.html">
+                  <a href="offers.html">
                     <li
                       class="flex flex-row transition duration-300 ease-in-out hover:text-green-500 hover:border-r-green-500 hover:border-r-4 hover:bg-green-200 p-3"
                     >
@@ -138,15 +307,47 @@
               </div>
             </div>
           </div>
-          <div class="basis-3/4 p-3">
+
+          <div class="md:basis-3/4 p-3 sm:w-full">
             <div class="bg-white rounded-lg font-mont">
+              <!-- Top Header -->
               <div
-                class="bg-secondary grid grid-cols-2 rounded-tr-lg rounded-tl-lg p-5"
+                class="bg-secondary grid md:grid-cols-2 rounded-tr-lg rounded-tl-lg p-5"
               >
                 <div>
-                  <h1 class="uppercase text-white">Dashboard</h1>
+                  <h1 class="uppercase text-white flex items-center">
+                    Dashboard
+                  </h1>
                 </div>
-                <div class="justify-end flex">
+                <!-- View on Small -->
+                <div class="sm:flex justify-end md:hidden">
+                  <a href="index.html">
+                    <div
+                      class="flex flex-row space-x-1 text-white items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                        />
+                      </svg>
+                      <h1>Go to home</h1>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Exnd View on small -->
+
+                <!-- View on Large -->
+                <div class="md:flex sm:hidden justify-end">
                   <h1 class="mr-2 text-white">
                     Wallet Balance: <strong>&#8358;12,345,533.00</strong>
                   </h1>
@@ -163,13 +364,19 @@
                     />
                   </svg>
                 </div>
+                <!-- End View on Large -->
               </div>
-              <div class="grid grid-cols-2 gap-4 p-5">
+              <!-- End of Top Header -->
+              <div
+                class="md:grid md:grid-cols-2 sm:flex sm:flex-col-reverse gap-4 p-5"
+              >
                 <div
-                  class="rounded-lg shadow-sm shadow-gray-400 shadow-blur p-5"
+                  class="rounded-lg shadow-md shadow-gray-300 shadow-blur p-5"
                 >
                   <div class="grid grid-cols-2 mb-5">
-                    <h1 class="uppercase text-gray-500">orders Summary</h1>
+                    <h1 class="uppercase text-gray-500 font-semibold">
+                      orders Summary
+                    </h1>
                     <div class="flex justify-end">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -191,26 +398,26 @@
                     <div
                       class="bg-thirteenBg flex flex-col justify-center text-center py-2 rounded-lg shadow-md shadow-thirteenBg"
                     >
-                      <h1 class="text-2xl">13</h1>
-                      <h1>Total</h1>
+                      <h1 class="md:text-2xl sm:font-semibold">13</h1>
+                      <h1 class="sm:text-sm">Total</h1>
                     </div>
                     <div
-                      class="bg-primary flex flex-col justify-center text-center py-2 rounded-lg shadow-lg shadow-primary"
+                      class="bg-primary flex flex-col justify-center text-center py-2 rounded-lg shadow-md shadow-primary"
                     >
-                      <h1 class="text-2xl">8</h1>
-                      <h1>Sold</h1>
+                      <h1 class="md:text-2xl sm:font-semibold">8</h1>
+                      <h1 class="text-sm">Sold</h1>
                     </div>
                     <div
-                      class="bg-yellow-600 flex flex-col justify-center text-center py-2 rounded-lg shadow-lg shadow-yellow-600"
+                      class="bg-yellow-600 flex flex-col justify-center text-center py-2 rounded-lg shadow-md shadow-yellow-600"
                     >
-                      <h1 class="text-2xl">5</h1>
-                      <h1>Pending</h1>
+                      <h1 class="md:text-2xl sm:font-semibold">5</h1>
+                      <h1 class="text-sm">Pending</h1>
                     </div>
                     <div
-                      class="bg-red-700 flex flex-col justify-center text-center py-2 rounded-lg shadow-lg shadow-red-700"
+                      class="bg-red-700 flex flex-col justify-center text-center py-2 rounded-lg shadow-md shadow-red-700"
                     >
-                      <h1 class="text-2xl">0</h1>
-                      <h1>Cancelled</h1>
+                      <h1 class="md:text-2xl sm:font-semibold">0</h1>
+                      <h1 class="text-sm">Cancelled</h1>
                     </div>
                   </div>
                 </div>
@@ -237,15 +444,35 @@
                   <div class="grid grid-cols-2">
                     <div class="text-white">
                       <h1 class="mb-2">Available Balance</h1>
-                      <h1 class="text-3xl font-semibold">
+                      <h1 class="md:text-3xl sm:text-2xl font-semibold">
                         &#8358;12,345,533.00
                       </h1>
                     </div>
-                    <div class="">
+                    <div class="relative">
                       <div
-                        class="bg-white rounded-lg p-3 w-1/2 font-semibold text-sm float-right relative top-3 text-center text-green-500"
+                        class="bg-white rounded-lg p-3 font-semibold text-sm float-right relative top-3 text-center text-green-500 md:block sm:hidden"
                       >
                         Add Funds
+                      </div>
+                      <div class="absolute bottom-0 right-0 md:hidden sm:block">
+                        <div
+                          class="bg-white w-6 h-6 rounded-sm justify-center flex items-center"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-darkGray"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -253,10 +480,10 @@
               </div>
               <div class="p-5">
                 <div
-                  class="bg-white-700 shadow-sm shadow-gray-500 rounded-lg p-3"
+                  class="shadow-md shadow-gray-400 rounded-lg p-3 overflow-auto webkit"
                 >
                   <div class="grid grid-cols-2">
-                    <h1 class="text-gray-500">RECENT ORDERS</h1>
+                    <h1 class="text-gray-500 font-semibold">RECENT ORDERS</h1>
                     <div class="flex justify-end">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +504,7 @@
                   <div class="list mt-5">
                     <ul class="text-darkGray">
                       <li
-                        class="flex flex-row text-darkGray space-x-16 font-medium bg-gray-200 p-3"
+                        class="flex flex-row text-darkGray space-x-16 font-medium bg-gray-200 p-3 md:text-md text-sm"
                       >
                         <h1>Product Name</h1>
                         <h1>Price <span class="font-light">[Per Qty]</span></h1>
@@ -316,7 +543,7 @@
                       <hr class="text-gray-200" />
                     </ul>
                     <button
-                      class="border border-green-500 rounded-md px-3 py-2 mt-5 text-green-500 hover:bg-primary hover:text-white transition duration-500 "
+                      class="border border-green-500 rounded-md px-3 py-2 mt-5 text-green-500 hover:bg-primary hover:text-white transition duration-500"
                     >
                       See More
                     </button>
@@ -328,5 +555,6 @@
         </div>
       </div>
     </section>
+    <script src="./app.js"></script>
   </body>
 </html>
